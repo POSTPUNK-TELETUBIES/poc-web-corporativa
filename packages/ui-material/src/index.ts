@@ -1,3 +1,7 @@
 export { pacificoDefaultTheme } from './theme'
 export { NavBar } from './components/NavBar'
+export * from './components/CTA'
+export * from './components/HeaderStrip'
 export * from './components/icons'
+export * from './components/svg'
+export * from './components/AlertStrip'
