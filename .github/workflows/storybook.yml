@@ -24,6 +24,11 @@ jobs:
         with:
           version: 8
           run_install: false
+      - name: Build ui
+        working-directory: ./packages/ui-material
+        run: |
+          pnpm install
+          pnpm build
       - name: Build
         working-directory: ./apps/docs
         run: |
