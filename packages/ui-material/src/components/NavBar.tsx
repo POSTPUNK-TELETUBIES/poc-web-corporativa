@@ -26,7 +26,8 @@ export const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...rest}:
         <Stack gap={2} direction='row'>
           <IconButton sx={{
             display: { md: 'none', xs: 'grid' },
-            color: 'primary.main'
+            color: 'primary.main',
+            paddingInlineStart: 0
           }}
             onClick={handleClickMenu}
           >
@@ -36,8 +37,8 @@ export const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...rest}:
           </IconButton>
           <LogoPacificoIcon sx={{fontSize: '6.5rem', maxHeight: '2.5rem'}} />
         </Stack>
-        <Box component={'nav'} sx={{
-          display: { md: 'initial', xs: 'none' }
+        <Box component={'nav'} gap={2} sx={{
+          display: { md: 'flex', xs: 'none' }
         }}>
           {navItemsDesktop}
         </Box>

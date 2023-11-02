@@ -4,15 +4,12 @@ import { pacificoDefaultTheme } from 'ui-material'
 import { NavbarExample } from './Navbar.example'
 import code from './Navbar.example.tsx?raw'
 
-
-
-
-<Meta title="NavBar" />
+<Meta title="Organisms/Examples/Navbar" />
 
 <div>
   <ThemeProvider theme={pacificoDefaultTheme}>
     <CssBaseline />
-    <NavbarExample />
+    <NavbarExample items={[{label: 'Menu 1'}, {label: 'Menu 2'}]}/>
   </ThemeProvider>
 </div>
 
