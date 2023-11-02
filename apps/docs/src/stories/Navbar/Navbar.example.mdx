@@ -1,0 +1,20 @@
+import { Meta, Source } from "@storybook/blocks";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { pacificoDefaultTheme } from 'ui-material'
+import { NavbarExample } from './Navbar.example'
+import code from './Navbar.example.tsx?raw'
+
+
+
+
+<Meta title="NavBar" />
+
+<div>
+  <ThemeProvider theme={pacificoDefaultTheme}>
+    <CssBaseline />
+    <NavbarExample />
+  </ThemeProvider>
+</div>
+
+ <Source code={code} dark />
+
