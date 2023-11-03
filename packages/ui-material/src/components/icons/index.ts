@@ -1,1 +1,1 @@
-export { LogoPacifico as LogoPacificoIcon } from './LogoPacifico'
+export { default as LogoPacificoIcon } from './LogoPacifico'

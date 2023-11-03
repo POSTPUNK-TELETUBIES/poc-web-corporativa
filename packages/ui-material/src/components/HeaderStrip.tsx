@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, BoxProps, SxProps } from "@mui/material";
 
 export const headerStripStyle: SxProps = {

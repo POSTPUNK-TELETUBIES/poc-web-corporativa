@@ -2,9 +2,9 @@
   "name": "ui-material",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.esm.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.mts",
   "files": ["dist/**"],
   "scripts": {
     "build": "tsup",
@@ -18,11 +18,12 @@
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.16",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "18.2.0"
   }
 }

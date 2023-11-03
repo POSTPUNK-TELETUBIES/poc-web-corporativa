@@ -5,5 +5,12 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
-  format: ['esm', 'cjs']
+  format: ['esm'],
+  treeshake: true,
+  external:['@emotion/react', '@emotion/styled', 'react', 'react-dom'],
+  outExtension({format}) {
+      return {
+        js: `.${format}.js`
+      }
+  },
 });

@@ -1,6 +1,6 @@
-import { AppBar, AppBarProps, Backdrop, Box, Dialog, Drawer, IconButton, Menu, Slide, Stack, Toolbar } from '@mui/material'
+import { AppBar, AppBarProps, Box, Drawer, IconButton, Stack, Toolbar } from '@mui/material'
 import { Close as CloseIcon, Menu as MenuIcon } from '@mui/icons-material'
-import React, { MouseEvent, ReactNode, useCallback, useState } from 'react'
+import { ReactNode, useCallback, useState } from 'react'
 import { LogoPacificoIcon } from './icons'
 
 export interface NavbarProps extends AppBarProps {
@@ -10,7 +10,7 @@ export interface NavbarProps extends AppBarProps {
 }
 
 // TODO: use an imperative handler or other abstraction (or maybe is a premature optimization?)
-export const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...rest}: NavbarProps) => {
+const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...props}: Readonly<NavbarProps>)=>{
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClickMenu = useCallback(() => 
@@ -21,7 +21,7 @@ export const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...rest}:
   const handleCloseDrawer = useCallback(() => setIsOpen(false), [])
 
   return (
-    <AppBar {...rest}>
+    <AppBar {...props}>
       <Toolbar sx={{gap: 2, justifyContent: 'space-between', minHeight: '4rem'}}>
         <Stack gap={2} direction='row'>
           <IconButton sx={{
@@ -45,13 +45,6 @@ export const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...rest}:
         {leftOptions}
       </Toolbar>
     <Drawer
-      slotProps={{
-        backdrop:{
-          sx:{
-            opacity: '0.6 !important'
-          }
-        }
-      }}
       PaperProps={{
         sx:{top: '4rem', 
           borderTop:'0.4rem solid',
@@ -76,3 +69,5 @@ export const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...rest}:
     </AppBar>
   )
 }
+
+export default NavBar

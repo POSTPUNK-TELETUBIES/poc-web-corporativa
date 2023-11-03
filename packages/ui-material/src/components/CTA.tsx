@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { Button, ButtonProps, SxProps } from "@mui/material";
 
 export const CTAStyle: SxProps = {
