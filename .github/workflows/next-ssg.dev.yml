@@ -30,6 +30,7 @@ jobs:
       - name: Build
         env:
           OUTPUT: export
+          BASE_PATH: /poc-web-corporativa/next-ssg
         working-directory: ./apps/next-app
         run: |
           pnpm install
