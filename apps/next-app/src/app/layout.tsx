@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { PacificoNavbar } from '@/components/PacificoNavbar'
 import ThemeRegistry from '@/components/Providers/ThemeRegistry'
 import { PropsWithChildren } from 'react'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +14,7 @@ export default function RootLayout({
 }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
       <ThemeRegistry options={{ key: 'mui' }}>
         <PacificoNavbar items={[{label: 'Hola'}]}/>
         {children}
