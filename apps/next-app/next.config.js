@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: process.env.OUTPUT,
-  basePath: './'
+  assetPrefix: './'
 }
 
 module.exports = nextConfig
