@@ -1,16 +1,11 @@
 on:
   push:
     tags:
-      - 'next-ssg.dev-*'
-
-permissions:
-  contents: write
-  pages: write
+      - 'next-ssr.dev-*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -29,15 +24,16 @@ jobs:
           pnpm build
       - name: Build
         env:
-          OUTPUT: export
-          BASE_PATH: /poc-web-corporativa/next-ssg
+          OUTPUT: standalone
         working-directory: ./apps/next-app
         run: |
           pnpm install
           pnpm build
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./apps/next-app/out
-          destination_dir: next-ssg
+          cp -r .next/static .next/standalone/apps/next-app/.next/
+      - name: 'Deploy to Azure WebApp'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: poc-next
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: apps/next-app/.next/standalone
+      
