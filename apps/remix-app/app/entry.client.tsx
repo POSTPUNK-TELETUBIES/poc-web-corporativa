@@ -5,14 +5,44 @@
  */
 
 import { RemixBrowser } from "@remix-run/react";
-import { startTransition, StrictMode } from "react";
+import type { PropsWithChildren} from "react";
+import { startTransition, StrictMode, useMemo, useState } from "react";
 import { hydrateRoot } from "react-dom/client";
+import ClientStyleContextData from "./context/ClientStyleContextData";
+import { CacheProvider } from "@emotion/react";
+import createEmotionCache from "utils";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { pacificoDefaultTheme } from "ui-material";
+
+function ClientCacheProvider({ children }: PropsWithChildren) {
+  const [cache, setCache] = useState(createEmotionCache);
+
+  const clientStyleContextValue = useMemo(
+    () => ({
+      reset() {
+        setCache(createEmotionCache());
+      },
+    }),
+    [],
+  );
+
+  return (
+    <ClientStyleContextData.Provider value={clientStyleContextValue}>
+      <CacheProvider value={cache}>{children}</CacheProvider>
+    </ClientStyleContextData.Provider>
+  );
+}
 
 startTransition(() => {
   hydrateRoot(
     document,
     <StrictMode>
-      <RemixBrowser />
+      <ClientCacheProvider>
+        <ThemeProvider theme={pacificoDefaultTheme}>
+          <CssBaseline />
+          <RemixBrowser />
+        </ThemeProvider>
+      </ClientCacheProvider>
     </StrictMode>
   );
 });

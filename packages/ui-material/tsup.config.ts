@@ -8,9 +8,4 @@ export default defineConfig({
   format: ['esm'],
   treeshake: true,
   external:['@emotion/react', '@emotion/styled', 'react', 'react-dom'],
-  outExtension({format}) {
-      return {
-        js: `.${format}.js`
-      }
-  },
 });

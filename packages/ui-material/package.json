@@ -2,8 +2,8 @@
   "name": "ui-material",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.esm.js",
-  "module": "./dist/index.esm.js",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "files": ["dist/**"],
   "scripts": {
