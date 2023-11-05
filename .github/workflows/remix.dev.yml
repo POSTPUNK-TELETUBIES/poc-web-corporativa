@@ -34,6 +34,11 @@ jobs:
         working-directory: ./apps/remix-app
         run: |
           mv package.prod.json build/package.json
+
+      - name: Copy packge.json
+        working-directory: ./apps/remix-app/build
+        run: |
+          npm i
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with: 
