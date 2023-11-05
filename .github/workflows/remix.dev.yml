@@ -30,15 +30,10 @@ jobs:
         run: |
           pnpm install
           pnpm build
-      - name: Move modules
-        working-directory: ./apps/remix-app
-        run: |
-          cp -r node_modules build/
-          cp package.json build/
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with: 
           app-name: poc-remix
           publish-profile: ${{ secrets.AZURE_REMIX_WEBAPP_PUBLISH_PROFILE }}
-          package: apps/remix-app/build
+          package: apps/remix-app
       
