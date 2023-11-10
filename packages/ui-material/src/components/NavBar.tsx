@@ -12,7 +12,7 @@ export interface NavbarProps extends AppBarProps {
 // TODO: use an imperative handler or other abstraction (or maybe is a premature optimization?)
 const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...props}: Readonly<NavbarProps>)=>{
   const [isOpen, setIsOpen] = useState(false)
-
+  
   const handleClickMenu = useCallback(() => 
     setIsOpen(prev => !prev), 
     []
