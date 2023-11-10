@@ -5,3 +5,4 @@ export { HeaderStrip, HeaderStripProps, headerStripStyle} from './components/Hea
 export {LogoPacificoIcon } from './components/icons'
 export {ConcaveWave} from './components/svg'
 export {default as AlertStrip, AlertStripProps} from './components/AlertStrip'
+export { default as PacificoNavbar, NavbarItem, PacificoNavbarProps } from './components/PacificoNavbar'

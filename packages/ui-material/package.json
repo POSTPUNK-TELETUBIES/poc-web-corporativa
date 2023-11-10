@@ -5,7 +5,9 @@
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist/**"],
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch"
@@ -14,9 +16,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/react": "^14.1.0",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/ramda": "^0.29.8",
     "@types/react": "^18.2.34",
+    "jsdom": "^22.1.0",
     "tsup": "^7.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   },
   "peerDependencies": {
     "@emotion/react": "^11.11.1",
@@ -25,5 +32,8 @@
     "@mui/material": "^5.14.16",
     "react": "^18.2.0",
     "react-dom": "18.2.0"
+  },
+  "dependencies": {
+    "ramda": "^0.29.1"
   }
 }

@@ -32,7 +32,7 @@ const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...props}: Reado
             onClick={handleClickMenu}
           >
             {
-              isOpen ?  <CloseIcon />: <MenuIcon />
+              isOpen ?  <CloseIcon data-testid={'close-icon'} />: <MenuIcon data-testid={'menu-icon'} />
             }
           </IconButton>
           <LogoPacificoIcon sx={{fontSize: '6.5rem', maxHeight: '2.5rem'}} />
@@ -45,6 +45,8 @@ const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...props}: Reado
         {leftOptions}
       </Toolbar>
     <Drawer
+      aria-hidden={!!isOpen}
+      data-testid={'drawer'}
       PaperProps={{
         sx:{top: '4rem', 
           borderTop:'0.4rem solid',
