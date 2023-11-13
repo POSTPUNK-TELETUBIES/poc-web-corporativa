@@ -1,0 +1,48 @@
+on:
+  push:
+    tags:
+      - 'remix-ssr.dev-*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Change .npmrc
+        run: |
+          echo "node-linker = hoisted" >> .npmrc
+      - name: Build ui
+        working-directory: ./packages/ui-material
+        run: |
+          pnpm install
+          pnpm build
+      - name: Build
+        working-directory: ./apps/remix-app
+        run: |
+          pnpm install
+          pnpm build
+      - name: Copy packge.json
+        working-directory: ./apps/remix-app
+        run: |
+          mv package.production.json build/package.json
+
+      - name: Copy packge.json
+        working-directory: ./apps/remix-app/build
+        run: |
+          npm i
+      - name: 'Deploy to Azure WebApp'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: poc-remix
+          publish-profile: ${{ secrets.AZURE_REMIX_WEBAPP_PUBLISH_PROFILE }}
+          package: apps/remix-app/build
+      
