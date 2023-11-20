@@ -1,27 +1,21 @@
-export interface Page{
-  slug: string;
-  id: string;
-  groupId?: string;
-  subgroupId?: string;
-  navBarItemId?: string;
-  isVisible?: boolean
+export interface SubmenuItem {
+  label: string;
+  url?: string;
+  items?: SubmenuItem[];
 }
 
-export interface Group{
-  id: string
-  columnOrder: number;
-  order?: number;
-  navBarItemId: string;
-  name: string;
+export interface Group {
+  label: string;
+  items: SubmenuItem[];
 }
 
-export interface Subgroup{
-  id: string;
-  groupId: string;
- }
+export interface Column {
+  groups: Group[];
+}
 
-
-export interface NavbarItem{
+export interface MenuItem {
   id: string;
   label: string;
+  url?: string;
+  modalContent?: Column[];
 }

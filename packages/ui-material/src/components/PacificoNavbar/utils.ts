@@ -11,8 +11,8 @@ export const groupByPageParent = (pages: Page[])=>{
   const filterByProp = (propName: keyof Page) =>filterPagesByProp(pages, propName)
 
   return {
-    pagesInNavBar:indexByNavbar(filterByProp('navBarItemId')),
-    pagesInGroups:filterByProp('subgroupId'),
+    pagesByNavBar:indexByNavbar(filterByProp('navBarItemId')),
+    pagesInGroups:filterByProp('groupId'),
     pagesInSubgroups:filterByProp('subgroupId'),
    }
 }

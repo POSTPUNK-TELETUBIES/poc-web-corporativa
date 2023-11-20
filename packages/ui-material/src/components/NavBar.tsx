@@ -1,7 +1,8 @@
 import { AppBar, AppBarProps, Box, Drawer, IconButton, Stack, Toolbar } from '@mui/material'
 import { Close as CloseIcon, Menu as MenuIcon } from '@mui/icons-material'
-import { ReactNode, useCallback, useState } from 'react'
+import { ReactNode, useCallback, useReducer } from 'react'
 import { LogoPacificoIcon } from './icons'
+import { toggleReduce } from '../utils';
 
 export interface NavbarProps extends AppBarProps {
   navItemsDesktop?: ReactNode;
@@ -11,12 +12,8 @@ export interface NavbarProps extends AppBarProps {
 
 // TODO: use an imperative handler or other abstraction (or maybe is a premature optimization?)
 const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...props}: Readonly<NavbarProps>)=>{
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useReducer(toggleReduce, false)
   
-  const handleClickMenu = useCallback(() => 
-    setIsOpen(prev => !prev), 
-    []
-  )
 
   const handleCloseDrawer = useCallback(() => setIsOpen(false), [])
 
@@ -29,7 +26,7 @@ const NavBar = ({ navItemsMobile, navItemsDesktop, leftOptions, ...props}: Reado
             color: 'primary.main',
             paddingInlineStart: 0
           }}
-            onClick={handleClickMenu}
+            onClick={setIsOpen}
           >
             {
               isOpen ?  <CloseIcon data-testid={'close-icon'} />: <MenuIcon data-testid={'menu-icon'} />
