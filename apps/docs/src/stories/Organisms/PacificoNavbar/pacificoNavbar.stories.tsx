@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { PacificoNavbar } from 'ui-material'
 
 const meta = {
-  title: 'Organisms/Examples/PacificoNavbar',
+  title: 'Organisms/PacificoNavbar',
   component: PacificoNavbar,
   parameters: {
     layout: 'centered'

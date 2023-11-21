@@ -12,7 +12,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const items: SubmenuItem[] = Array.from({ length: 10 }).map((_, index) => ({
+const items: SubmenuItem[] = Array.from({ length: 5 }).map((_, index) => ({
   label: `sub item ${index}`,
   url: "#",
 }));
@@ -24,10 +24,10 @@ export const Default: Story = {
   },
 };
 
-const itemsWithSubMenu : SubmenuItem[]= Array.from({ length: 10 }).map((_, index) => ({
+const itemsWithSubMenu : SubmenuItem[]= Array.from({ length: 5 }).map((_, index) => ({
   label: `sub item ${index}`,
   items: [{
-    label: `sub item ${index}`,
+    label: `children sub item ${index}`,
     url: "#",
   }]
 }));

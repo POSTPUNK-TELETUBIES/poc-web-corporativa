@@ -7,6 +7,7 @@ import {
   AccordionSummaryProps,
   Link,
   Stack,
+  SxProps,
   Typography,
 } from "@mui/material";
 import { FC, PropsWithChildren } from "react";
@@ -19,8 +20,14 @@ export interface NavSubmenuProps<T = any>  extends PropsWithChildren<Omit<Accord
   headerProps?: AccordionSummaryProps
 } 
 
-export const defaultSxHeaderProps = {
-  width: 1,
+export const defaultSxHeaderProps: SxProps = {
+  width: 'fit-content',
+  minHeight: 0, 
+  gap: 1,
+  m:0,
+  '& .MuiAccordionSummary-content':{
+    m: 0
+  },
   '&.Mui-expanded':{
     minHeight: 0, 
     color: 'primary.main'
@@ -30,11 +37,19 @@ export const defaultSxHeaderProps = {
   },
   '&:hover':{
     color: 'primary.main'
-  }
+  },
+  p: 0
 }
 
 export const defaultPaperSxProps = {
-  boxShadow: 'none'
+  boxShadow: 'none',
+  margin: 0,
+  '&::before':{
+    display: 'none'
+  },
+  '&.Mui-expanded':{
+    margin: 0
+  },
 }
 
 export default function NavSubmenu({
@@ -58,7 +73,7 @@ export default function NavSubmenu({
       >
         <Typography>{label}</Typography>
       </AccordionSummary>
-      <AccordionDetails >
+      <AccordionDetails sx={{p: 0}} >
         <Stack  sx={{
           paddingInlineStart: 2
         }}>
