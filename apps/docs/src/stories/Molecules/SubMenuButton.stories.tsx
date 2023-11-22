@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BodyMenu, Column, SubMenuButton } from 'ui-material';
+import { BodyMenu, Column, Group, SubMenuButton } from 'ui-material';
 
 
 const meta = {
@@ -14,21 +14,89 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const items: Column[] = Array
-  .from({length: 1})
-  .map((_, index)=>({
-    groups: [
+const groups1: Group[] = [
+  {
+    items: [
       {
-        label: `Group ${index}`,
-        items: Array
-          .from({length: 10})
-          .map((_, index)=>({
-            label: `Item ${index}`,
+        label: 'C1 - Item 1',
+        url: '#'
+      },
+      {
+        label: 'C1 - Item 2',
+        items: [
+          {
+            label: 'Sub Item 1',
             url: '#'
-          }))
+          }
+        ]
+      }
+    ],
+    label: 'C1 - Group 1'
+  },
+  {
+    label: 'C1 - Group 2',
+    items: [
+      {
+        label: 'Item 1',
+        url: '#'
+      },
+      {
+        label: 'Item 2',
+        items: [
+          {
+            label: 'Sub Item 1',
+            url: '#'
+          }
+        ]
       }
     ]
-  }))
+  }
+];
+
+const groups2: Group[] = [
+  {
+    items: [
+      {
+        label: 'C2 - Item 1',
+        url: '#'
+      },
+      {
+        label: ' C2 - Item 2',
+        items: [
+          {
+            label: 'Sub Item 1',
+            url: '#'
+          }
+        ]
+      }
+    ],
+    label: 'C2 - Group 1'
+  },
+  {
+    label: 'C2 - Group 2',
+    items: [
+      {
+        label: 'Item 1',
+        url: '#'
+      },
+      {
+        label: 'Item 2',
+        items: [
+          {
+            label: 'Sub Item 1',
+            url: '#'
+          }
+        ]
+      }
+    ]
+  }
+]
+
+const columns: Column[] = [
+  {groups: groups1},
+  {groups: groups2}
+];
+
 
 export const Default: Story = {
   args: {
@@ -37,5 +105,21 @@ export const Default: Story = {
     children: <div>Hola</div>
   }
 }
+
+export const WithMenuBody: Story = {
+  args: {
+    label: 'Sub menu',
+    drawerProps: {},
+    children: <BodyMenu sx={{
+        m: 2,
+        display: 'flex',
+        gap: 3
+      }}
+      columns={columns} 
+    />
+  }
+}
+
+
 
 
