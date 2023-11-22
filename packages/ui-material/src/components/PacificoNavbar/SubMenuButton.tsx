@@ -1,11 +1,9 @@
 import { MouseEvent, useCallback, useState } from "react"
-import { Column } from "./types"
 import { Button, Drawer, DrawerProps, ButtonProps } from "@mui/material"
 import { ExpandLess, ExpandMore } from "@mui/icons-material"
 
 export interface SubMenuButtonProps extends ButtonProps{
   label: string;
-  items: Column[];
   drawerProps?: DrawerProps;
 }
 
