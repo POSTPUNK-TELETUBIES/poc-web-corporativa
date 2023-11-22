@@ -7,19 +7,19 @@ export interface BodyMenuProps extends BoxProps{
   }
   
 const BodyMenu= ({columns, ...props}: BodyMenuProps)=>(
-    <Box {...props}>
-      {
-       columns.map(({groups}, index)=>(
-         <Stack key={index} gap={2}>
-           {
-             groups.map(({label, items}, index)=>(
-               <MenuGroup key={index} label={label} items={items}/>
-             ))
-           }
-         </Stack>
-       ))
-      } 
-      </Box>
+  <Box {...props}>
+    {
+      columns.map(({groups}, index)=>(
+        <Stack key={`column-${index}`} gap={2}>
+          {
+            groups.map(({label, items})=>(
+              <MenuGroup key={`group-${label}`} label={label} items={items}/>
+            ))
+          }
+        </Stack>
+      ))
+    } 
+    </Box>
   )
   
   

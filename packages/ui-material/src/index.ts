@@ -7,4 +7,15 @@ export {ConcaveWave} from './components/svg'
 export { default as AlertStrip, AlertStripProps} from './components/AlertStrip'
 export * from './components/PacificoNavbar'
 export { default as NavSubmenu } from './components/NavSubmenu'
-export { BodyMenu, BodyMenuProps, MenuGroup, MenuGroupProps, Column, Group, MenuItem, SubmenuItem } from './components/PacificoNavbar'
+export { 
+  BodyMenu, 
+  BodyMenuProps, 
+  MenuGroup, 
+  MenuGroupProps, 
+  SubMenuButton,
+  SubMenuButtonProps,
+  Column, 
+  Group, 
+  MenuItem, 
+  SubmenuItem
+} from './components/PacificoNavbar'

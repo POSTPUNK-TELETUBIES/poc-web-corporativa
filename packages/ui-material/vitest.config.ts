@@ -6,7 +6,6 @@ export default defineConfig({
     globals: true,
     coverage: {
       all: true,
-      enabled: true,
       exclude:[
         "**/types.ts",
         "src/index.ts",

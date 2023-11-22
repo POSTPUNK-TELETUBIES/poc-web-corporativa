@@ -68,7 +68,6 @@ export default function NavSubmenu({
       <AccordionSummary
         sx={defaultSxHeaderProps}
         expandIcon={<ExpandMore />}
-        inlist={true}
         {...headerProps}
       >
         <Typography>{label}</Typography>
@@ -77,7 +76,7 @@ export default function NavSubmenu({
         <Stack  sx={{
           paddingInlineStart: 2
         }}>
-          {items?.map((linkProps) => <LinkComponent {...linkProps} />)}
+          {items?.map((linkProps, index) => <LinkComponent key={index} {...linkProps} />)}
         </Stack>
         {children}
       </AccordionDetails>

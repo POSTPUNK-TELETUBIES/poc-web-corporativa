@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.0",
     "@testing-library/user-event": "^14.5.1",
     "@types/ramda": "^0.29.8",
@@ -41,7 +42,6 @@
     "react-dom": "18.2.0"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^6.1.4",
     "ramda": "^0.29.1"
   }
 }
