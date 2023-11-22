@@ -101,6 +101,7 @@ export const Example: Story = {
   args:{
     sx:{
       background: 'white',
+      zIndex: 1301
     },
     items: [{
       label: 'Home',
