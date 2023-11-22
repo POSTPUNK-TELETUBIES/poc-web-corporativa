@@ -2,33 +2,26 @@
 
 import { ExpandMore } from "@mui/icons-material";
 import { Typography } from "@mui/material";
-import { MouseEvent, ReactNode, useReducer } from "react";
+import { HTMLAttributes, MouseEvent, ReactNode } from "react";
 
 
-export interface NavItem{
+export interface NavItem<T = HTMLElement> extends HTMLAttributes<T>{
   label: ReactNode;
-  onClick?: (event?: MouseEvent)=>void
+  onClick?: (event?: MouseEvent<T>)=>void,
+  isOpen?: boolean
 }
 
-const toggleReducer = (prev: boolean)=>!prev
 
-export default function NavbarLink ({label, onClick}: Readonly<NavItem>){
-  const [isOpen, setIsOpen] = useReducer(toggleReducer, false)
-
-  function handleClick(event: MouseEvent<HTMLSpanElement>){
-    setIsOpen(); 
-    if(onClick)
-      onClick(event)
-  }
-
+export default function NavbarLink ({label, onClick, isOpen, ...props}: Readonly<NavItem>){
   return (<Typography
+    {...props}
     sx={{
       display: 'flex',
       justifyContent: 'center',
       cursor: 'pointer',
       color: 'primary.main'
     }} 
-    onClick={handleClick}
+    onClick={onClick}
   >
     {label} {<ExpandMore sx={{
       transform: isOpen? 'rotateX(180deg)' : 'unset'
