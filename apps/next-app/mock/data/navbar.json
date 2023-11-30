@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {
+      "label": "Hola",
+      "items": [
+        {
+          "groups": [
+            {
+              "label": "Group1",
+              "items": [
+                {
+                  "label": "a",
+                  "url": "#"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

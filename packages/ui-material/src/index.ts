@@ -1,3 +1,5 @@
+'use client';
+
 export { pacificoDefaultTheme } from './theme'
 export { default as NavBar } from './components/NavBar'
 export { CTA, CTAStyle } from './components/CTA'
@@ -20,5 +22,7 @@ export {
   Column, 
   Group, 
   MenuItem, 
-  SubmenuItem
+  SubmenuItem,
+  PacificoNavbarProvider,
+  contextMenu
 } from './components/PacificoNavbar'

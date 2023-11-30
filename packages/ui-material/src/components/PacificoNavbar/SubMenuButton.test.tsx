@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 
 describe.concurrent("SubMenuButton", () => {
   const handleClick = vi.fn();
-  const { getByText } = render(<SubMenuButton label="Menu" items={[]} onClick={handleClick} />);
+  const { getByText } = render(<SubMenuButton label="Menu" onClick={handleClick} />);
 
   it("renders label and toggle icon", () => {
     const labelElement = getByText("Menu");
