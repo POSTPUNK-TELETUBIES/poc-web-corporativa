@@ -36,6 +36,7 @@ export class LocalCMSProvider implements DataProvider<ComponentResponse>{
   
       return data;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('There is no such a dynamic import or the path is not okay')
 
       return this.syncGetOne(id);

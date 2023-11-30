@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import 'reflect-metadata'
 import { ComponentResponse } from '@/types';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
@@ -22,7 +23,7 @@ const localCmsProvider = new LocalCMSProvider({
   }
 });
 
-const fakeFetch = () => localCmsProvider.getOne('../../mock/data/test.cms.data.json');
+const fakeFetch = () => localCmsProvider.getOne('../../../mock/data/test.cms.data.json');
 
 export const FakeComponent = async ()=>{
   const data = await fakeFetch();

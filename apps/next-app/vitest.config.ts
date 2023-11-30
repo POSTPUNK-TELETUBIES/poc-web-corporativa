@@ -8,5 +8,15 @@ export default defineConfig({
   test:{
     environment: 'jsdom',
     globals: true,
+    coverage:{
+      all: true,
+      exclude:[
+        'out/**/*',
+        '.next/**/*',
+        'typedoc/**/*',
+        '*.d.ts',
+        'src/types/*'
+      ]
+    }
   }
 })
