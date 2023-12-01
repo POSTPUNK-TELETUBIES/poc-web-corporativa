@@ -1,5 +1,7 @@
 import graphqlQueryGetOne from 'raw-loader!./getOne.gql'
-
-export default {
-  getOneQuery: graphqlQueryGetOne
+const queries: Record<string, Record<string, string>> =  {
+  getOneQueries: {
+    section: graphqlQueryGetOne
+  }
 }
+export default queries

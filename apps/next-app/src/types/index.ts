@@ -10,8 +10,8 @@ export interface ComponentMetadata {
   description?: string;
 }
 
-export interface ComponentResponse <T =any> {
-  response: ResolvedResponse;
+export interface ComponentResponse <R=any, T =any> {
+  response: ResolvedResponse<R>;
   metadata: ComponentMetadata;
   extraData?: T;
 }

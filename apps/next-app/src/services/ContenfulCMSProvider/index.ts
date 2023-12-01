@@ -4,15 +4,28 @@ import defaultRequests from "./constants";
 import { inject, injectable } from "tsyringe";
 import { ComponentResponse } from "@/types";
 
-
-export interface GetOneRawResponse{
-  data: {
-    name: string
-  }
+export interface SectionResponse {
+  "name": string,
+  "props": {
+    "cards": [
+      {
+        "title": string
+      }
+    ]
+  },
+  "title": string
 }
 
-export interface CMSResolver<RawData>{
-  getOneResolve<T= unknown>(rawData: RawData): ComponentResponse<T>
+export interface GetOneRawResponse
+  {
+    "data": {
+      section:SectionResponse
+    }
+  }
+
+
+export interface CMSResolver{
+  getOneResolve(rawData: unknown): ComponentResponse<unknown>
 }
 
 
@@ -24,12 +37,17 @@ export interface CMSResolver<RawData>{
 export class ContentfulCMSProvider implements DataProvider<ComponentResponse>{
   constructor(
     private client: GraphQLClient, 
-    @inject('Resolver') private resolver: CMSResolver<GetOneRawResponse>, 
-    private requests = defaultRequests
+    @inject('Resolver') private resolver: CMSResolver, 
+    @inject('Request')private requests = defaultRequests
   ){}
 
-  async getOne(id: StringOrNumber, meta?: any){
-    const { data } = await this.client.request<GetOneRawResponse>(this.requests.getOneQuery)
+  async getOne(id: StringOrNumber, meta: {requestName: string}){
+    const { data } = await this.client
+      .request(this.requests.getOneQueries[meta.requestName], {
+        variables: {
+          id: id.toString()
+        }
+      })
 
     return this.resolver.getOneResolve(data);
   }

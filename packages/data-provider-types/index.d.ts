@@ -1,6 +1,6 @@
 export type StringOrNumber = string | number;
 
-export interface SyncDataProvider<T = unknown, R = unknown, U = unknown> {
+export interface SyncDataProvider<T = any, R = any, U = any> {
   syncCreate?(data: R , meta?: any): T | void;
   syncCreateMany?(data: R [], meta?: any): T[] | void;
   syncGetOne?(id: StringOrNumber, meta?: any): T | null;
@@ -13,7 +13,7 @@ export interface SyncDataProvider<T = unknown, R = unknown, U = unknown> {
   syncBulkDelete?(filter: Filtering, meta?: any): void;
 }
 
-export interface AsyncDataProvider<T = unknown, R = unknown, U = unknown> {
+export interface AsyncDataProvider<T = any, R = any, U = any> {
   create?(data: R, meta?: any): Promise<T | void>;
   createMany?(data: R[], meta?: any): Promise<T[] | void>;
   getOne?(id: StringOrNumber, meta?: any): Promise<T | null>;
@@ -49,8 +49,8 @@ export interface GetManyOptions {
 }
 
 export type DataProvider<
-  T = unknown, 
-  R = unknown, 
-  U = unknown
+  T = any, 
+  R = any, 
+  U = any
 > = SyncDataProvider<T, R, U> 
   & AsyncDataProvider<T, R, U>;
