@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "name": "Component test"
+  },
+  "response": {
+    "data": {
+      "fakeProp": "fakeProp"
+    }
+  }
+}

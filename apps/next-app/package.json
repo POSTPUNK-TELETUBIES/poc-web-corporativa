@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:docs": "typedoc",
+    "prettyLogs": "pino-pretty test.log"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -14,18 +16,31 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.16",
+    "@testing-library/react": "^14.1.0",
+    "data-provider-types": "workspace:*",
     "material-react-table": "^2.0.2",
     "next": "14.0.1",
+    "pino": "^8.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.8.0",
     "ui-material": "workspace:*"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
     "@types/node": "^20",
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",
+    "@vitejs/plugin-react": "^4.2.0",
+    "@vitest/coverage-v8": "^0.34.6",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
-    "typescript": "^5"
+    "jsdom": "^22.1.0",
+    "pino-pretty": "^10.2.3",
+    "raw-loader": "^4.0.2",
+    "typedoc": "^0.25.4",
+    "typescript": "^5",
+    "vitest": "^0.34.6"
   }
 }

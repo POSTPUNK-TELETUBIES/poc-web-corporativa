@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { PacificoNavbar } from '@/components/PacificoNavbar'
+
 import ThemeRegistry from '@/components/Providers/ThemeRegistry'
 import { PropsWithChildren } from 'react'
+import { LayoutNavbar } from '@/components/LayoutNavbar'
+import NavbarContainer from '@/containers/NavbarContainer'
+
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
       <ThemeRegistry options={{ key: 'mui' }}>
-        <PacificoNavbar items={[{label: 'Hola'}]}/>
+        <NavbarContainer />
         {children}
       </ThemeRegistry>
       </body>

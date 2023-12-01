@@ -32,6 +32,6 @@ export const WithIcon: Story = {
 export const Outlined: Story = {
   args: {
     children : 'Bareto',
-    variant: 'outlined'
+    variant: 'outlined',
   }
 }
